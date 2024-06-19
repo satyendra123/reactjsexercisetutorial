@@ -1,0 +1,43 @@
+#step-1 useState= i have a button and a div. i want to toggle the color of div red to blue with a button
+
+Ex-1 using if-else
+import React, { useState } from 'react'
+const App = () => {
+  const[color,setColor]=useState("red");
+
+  const handle=()=>{
+    if(color=="red"){
+      setColor("blue")
+    }
+    else{
+      setColor("red")
+    }
+  }
+  return (
+    <div>
+      <div style={{backgroundColor:color, height:"100px"}}></div>
+      <button onClick={handle} style={{marginLeft:"300px",marginTop:"50px"}}>change the color</button>
+    </div>
+  )
+}
+export default App
+
+Ex-2 using ternary operator
+import React, { useState } from 'react'
+
+const App = () => {
+  const[color,setColor]=useState("red");
+
+  const handle=()=>{
+ setColor(color=="red"?"blue":"red")
+  }
+  return (
+    <div>
+      <div style={{backgroundColor:color, height:"100px"}}></div>
+      <button onClick={handle} style={{marginLeft:"300px",marginTop:"50px"}}>change the color</button>
+    </div>
+  )
+}
+export default App
+
+Ex-3 using 
