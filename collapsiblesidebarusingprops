@@ -1,3 +1,5 @@
+#actually humne isme kya kiya hai ki humne props method ka use kiya hai. props method ka use karke hum size send kar rhe hai aur use Dashboard me receive karke sidebar ko toggling kara rhe hai. so ye new logic se maine toggling sidebar ko banaya hai.
+
 #components/Dashboard.js
 import React, { useState } from 'react';
 import Dashboard from './Dashboard';
