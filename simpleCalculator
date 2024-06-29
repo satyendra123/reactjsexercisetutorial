@@ -2,3 +2,295 @@
 # Step-1 so maine sabhi ko individial div me band kar diya aur in sabhi ko ek div me band kar diya aur usme className="App" rakh diya. aur isme maine classes lgaye hai. display:flex, flex-direction:column, justify-content:center, align-item:center
 # aur input box ke liye maine classes banaye hai className="input-field" aur maine iske css me likha hai height:20px, margin:10px taki sabhi input boxes ke bich me gap aa jaye, border:2px, solid, #ccc  border-radius:5px
 
+#Step-1 App.js
+import React, { useState } from 'react';
+import './App.css';
+const App = () => {
+  const [firstNumber, setFirstNumber] = useState('');
+  const [secondNumber, setSecondNumber] = useState('');
+  const [result, setResult] = useState('');
+
+  const handlefirstnumber = (e)=>{
+    setFirstNumber(e.target.value);
+  }
+
+  const handlesecondnumber = (e)=>{
+    setSecondNumber(e.target.value);
+  }
+
+  const sum = () =>{
+    setResult(Number(firstNumber) + Number(secondNumber));
+  }
+  const subs = () =>{
+    setResult(Number(firstNumber) - Number(secondNumber));
+  }
+  const mul = () =>{
+    setResult(Number(firstNumber) * Number(secondNumber));
+  }
+  const dev = () =>{
+    setResult(Number(firstNumber) / Number(secondNumber));
+  }
+  return(
+            <div class="App">
+              <div>
+              <label>ENTER YOUR FIRST NUMBER: </label>
+              <input className="input-field" type="text" placeholder="Enter your first number" onChange={handlefirstnumber}/>
+              </div>
+              <div>
+              <label>ENTER YOUR FIRST NUMBER: </label>
+              <input className="input-field" type="text" placeholder="Enter your first number" onChange={handlesecondnumber}/>
+              </div>
+              <div>
+              <button onClick={sum}>SUM</button>
+              <button onClick={subs}>Subs</button>
+              <button onClick={mul}>Mul</button>
+              <button onClick={dev}>Devide</button>
+              </div>
+              <div>
+              <label>Result </label>
+              <input className="input-field" type="text" placeholder=" " value={result} readOnly/>
+              </div>
+            </div>
+  )
+}
+export default App
+
+
+/*
+import React, { useState } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  const [firstNumber, setFirstNumber] = useState('');
+  const [secondNumber, setSecondNumber] = useState('');
+  const [operation, setOperation] = useState('+'); // Default operation is addition
+  const [result, setResult] = useState('');
+
+  // Handle number input changes
+  const handleFirstNumberChange = (e) => {
+    setFirstNumber(e.target.value);
+  };
+
+  const handleSecondNumberChange = (e) => {
+    setSecondNumber(e.target.value);
+  };
+
+  // Handle operation button click
+  const handleOperation = (op) => {
+    setOperation(op); // Set the operation type
+
+    // Perform immediate calculation
+    calculateResult(firstNumber, secondNumber, op);
+  };
+
+  // Calculate the result based on operation
+  const calculateResult = (num1, num2, op) => {
+    num1 = parseFloat(num1);
+    num2 = parseFloat(num2);
+    let calculatedResult = 0;
+
+    switch (op) {
+      case '+':
+        calculatedResult = num1 + num2;
+        break;
+      case '-':
+        calculatedResult = num1 - num2;
+        break;
+      case '*':
+        calculatedResult = num1 * num2;
+        break;
+      case '/':
+        calculatedResult = num1 / num2;
+        break;
+      default:
+        calculatedResult = 0;
+    }
+    setResult(calculatedResult.toString());
+  };
+
+  return (
+    <div className="App">
+      <div>
+        <input type="text" placeholder="Enter the first number" className="input-field" value={firstNumber} onChange={handleFirstNumberChange}/>
+      </div>
+      <div>
+        <input type="text" placeholder="Enter the second number" className="input-field" value={secondNumber} onChange={handleSecondNumberChange}/>
+      </div>
+      <div>
+        <button className="button" onClick={() => handleOperation('+')}>SUM</button>
+        <button className="button" onClick={() => handleOperation('-')}>SUBS</button>
+        <button className="button" onClick={() => handleOperation('*')}>MUL</button>
+        <button className="button" onClick={() => handleOperation('/')}>DIVIDE</button>
+      </div>
+      <div>
+        <input type="text" placeholder="Result" className="display-field" value={result} readOnly />
+      </div>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+#step-2 App.css
+/*
+.App {
+  margin-top:10px;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.input-field {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+*/
+
+.App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  
+}
+
+.input-field{
+  border: 2px solid #cccccc;
+  width: 200px;
+  margin: 10px;
+  height:20px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+
+#EXAMPLE-2 ye humara complete Advance calculator ka project hai. isme mai simply 
+import { React, useState } from 'react';
+import './App.css';
+
+function App() {
+  const [input, setInput] = useState("");
+
+  const handleClick = (e) => {
+    const value = e.target.value;
+    if (value === "cl") {
+      setInput("");
+    } 
+    
+    else if (value === "=") 
+    {
+      try {
+        setInput(eval(input).toString());
+           } 
+        catch (e) 
+        {
+        setInput("Error");
+         }
+     } 
+    
+    else {
+      setInput(input + value);
+    }
+  };
+
+  return (
+    <div className="App">
+      <div className="calculator">
+        <input className="input-field" type="text" value={input} readOnly />
+        <div className="cal-btn">
+          <button value="+" onClick={handleClick}>+</button>
+          <button value="-" onClick={handleClick}>-</button>
+          <button value="*" onClick={handleClick}>*</button>
+          <button value="/" onClick={handleClick}>/</button>
+          <button value="7" onClick={handleClick}>7</button>
+          <button value="8" onClick={handleClick}>8</button>
+          <button value="9" onClick={handleClick}>9</button>
+          <button value="cl" onClick={handleClick}>cl</button>
+          <button value="4" onClick={handleClick}>4</button>
+          <button value="5" onClick={handleClick}>5</button>
+          <button value="6" onClick={handleClick}>6</button>
+          <button value="=" onClick={handleClick}>=</button>
+          <button value="1" onClick={handleClick}>1</button>
+          <button value="2" onClick={handleClick}>2</button>
+          <button value="3" onClick={handleClick}>3</button>
+          <button value="0" onClick={handleClick}>0</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+#Step-2 App.css
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.calculator {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.input-field {
+  margin-bottom: 20px;
+  width: 320px;
+  height: 50px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 24px;
+  text-align: right;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+.cal-btn {
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  grid-gap: 10px;
+}
+
+.cal-btn button {
+  width: 70px;
+  height: 70px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cal-btn button:hover {
+  background-color: #d4d4d4;
+}
+
+.cal-btn button:active {
+  background-color: #c8c8c8;
+}
+
+
+export default App;
