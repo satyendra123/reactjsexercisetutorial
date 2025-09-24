@@ -1,0 +1,25 @@
+import React, { useState } from "react";
+const App = () => {
+  const [count, setCount] = useState(5);
+  const increment = () => {
+    setCount((prev) => {
+      return prev + 1;
+    });
+  };
+
+  const decrement = () => {
+    setCount((prev) => {
+      return prev - 1;
+    });
+  };
+
+  return (
+    <>
+      <h1>Hello world</h1>
+      <button onClick={increment}>+</button>
+      <p>{count}</p>
+      <button onClick={decrement}>-</button>
+    </>
+  );
+};
+export default App;
