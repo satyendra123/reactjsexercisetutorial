@@ -1,3 +1,4 @@
+Note- isme humne ek chiz study kiya ki jo useState hota hai wo setCount((prev)=>{ return prev+1}) iska mtlb ki ye apne parameter me previous value leta hai aur usko update krta hai
 import React, { useState } from "react";
 const App = () => {
   const [count, setCount] = useState(5);
