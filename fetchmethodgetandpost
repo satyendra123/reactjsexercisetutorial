@@ -1,3 +1,4 @@
+Ex-1 using fetch method i am sending the static data to the server on the button press
 import React,{useState} from 'react'
 const FetchMethod = () =>{
 
