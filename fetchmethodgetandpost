@@ -37,3 +37,57 @@ const FetchMethod = () =>{
     )
 }
 export default FetchMethod
+
+EX-2 in the axios we don't need to pass he method:POST, body:JSONstringify(data), and headers:{'Content-Type':'application/json'}. so hum use krenge axios.post ka directly so hume method:POST likhne ki jarurat
+     nahi padhti hai. aur body me hum data pass karte the fetch me lekin isme hum directly data likh dete hai. 
+import React from 'react'
+import axios from 'axios'
+
+const AxiosMethod = () => {
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    alert("Submit button is clicked");
+    await submitData();
+  }
+
+  const data = {
+    'first_name': "satyendra",
+    'last_name': "singh",
+    'age': 27,
+    'roll_number': 0,
+    'gender': "Male",
+    'email': 'satyendra@gmail.com',
+    'address': "madhaya prdesh",
+    'city': "kanpur"
+  }
+
+  const submitData = async () => {
+    try {
+      const response = await axios.post("http://192.168.1.68:8000/api/students/", data, {
+        headers: { 'Content-Type': 'application/json' }
+      });
+      console.log(response.data);
+      alert("Data is submitted successfully");
+    }
+    catch (error) {
+      console.error("Error while submitting data:", error);
+      alert("Something went wrong while submitting data!");
+    }
+  }
+
+  return (
+    <>
+      <h1>Hello World</h1>
+      <button 
+        className="px-4 py-3 text-center bg-red-500" 
+        type="submit" 
+        onClick={handleSubmit}
+      >
+        Submit
+      </button>
+    </>
+  )
+}
+
+export default AxiosMethod;
