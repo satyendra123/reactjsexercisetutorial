@@ -1,0 +1,17 @@
+1) when i do it then it will print the data after the 3 second
+setTimeout(callback,time) - it will run the callback function after the given time.
+EX-1 setTimeout(()=>{
+       console.log("print")
+      },3000)
+
+EX-2 setInterval(callback,time)- it will continously calling the callback function after every time interval
+     setInterval(()=>{
+        console.log("print")
+      })
+Note- at every 3 second of time it will print 3. you will see this function inside the fetch method when we call the method in every 3 second
+
+EX-3 clearInterval(interval_id) - stops that interval from running. ye apne parameter me wo data leta hai jo settimeinterval return karta hai taki hume use is function ki madad se clear bhi kar sake
+     const intervalId = setInterval(()=>{
+                           console.log("print")
+                        })
+     clearInterval(intervalId);
