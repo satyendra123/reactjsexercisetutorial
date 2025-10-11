@@ -17,3 +17,14 @@ EX-3 clearInterval(interval_id) - stops that interval from running. ye apne para
      clearInterval(intervalId);
 
 Note- ye chiz tumne useEffect me dekhi hogi kyuki hum chahte hai ki jaise hi humara component unmount ho means hum dusre component me shift ho to ye humari api ko call naa karte rahe. jab hum us component me ho tbhi ye call kare
+
+EX-4
+const data = () =>{
+    console.log("hello");
+}
+
+const interval = setInterval(data,5000);
+
+setTimeout(()=>{
+    clearInterval(interval);
+},15000);
