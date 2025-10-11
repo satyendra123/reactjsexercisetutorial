@@ -7,24 +7,25 @@ EX-1 setTimeout(()=>{
 EX-2 setInterval(callback,time)- it will continously calling the callback function after every time interval
      setInterval(()=>{
         console.log("print")
-      })
+      },3000);
 Note- at every 3 second of time it will print 3. you will see this function inside the fetch method when we call the method in every 3 second
 
-EX-3 clearInterval(interval_id) - stops that interval from running. ye apne parameter me wo data leta hai jo settimeinterval return karta hai taki hume use is function ki madad se clear bhi kar sake
+EX-3 clearInterval(interval_id) - stops that interval from running. ye apne parameter me wo data leta hai jo settimeinterval return karta hai taki hume use is function ki madad se us timeinterval ko clear kar sake rok sake. 
      const intervalId = setInterval(()=>{
                            console.log("print")
-                        })
+                        },5000)
      clearInterval(intervalId);
 
+Note- jab mai is function ko run karta hu to ye kuch print nahi karta hai kyuki 5 second se pahle hi 
 Note- ye chiz tumne useEffect me dekhi hogi kyuki hum chahte hai ki jaise hi humara component unmount ho means hum dusre component me shift ho to ye humari api ko call naa karte rahe. jab hum us component me ho tbhi ye call kare
 
-EX-4
+EX-4:
 const data = () =>{
     console.log("hello");
 }
-
 const interval = setInterval(data,5000);
-
 setTimeout(()=>{
     clearInterval(interval);
 },15000);
+
+EX-5
